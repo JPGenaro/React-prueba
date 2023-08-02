@@ -1,9 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react';
 
 export const Primercomponente = () => {
-
-    let nombre = "Carlitos";
     let web = "carlitosdou.es";
+
+    const [nombre, setNombre] = useState("Carlitos")
 
     let cursos = [
         "Master en python",
@@ -12,17 +12,19 @@ export const Primercomponente = () => {
     ]
 
     const cambiarNombre = (nuevoNombre) => {
-        nombre = nuevoNombre;
+        setNombre(nuevoNombre)
     }
  
   return (
     <div>
-        <h1>Primer Componente</h1>
+        <h1>Primer Componente</h1> 
         <p>Este es el primer Componente de React...</p>
         <p>Mi nombre es: {nombre}</p>
         <p>Mi web es: {web}</p>
 
-        <button onClick={ e => cambiarNombre("CARLITOS")}></button>
+        <input type="text" onChange={e => cambiarNombre(e.target.value)} placeholder='Cambia el nombre' />
+
+        <button onClick={ e => cambiarNombre("CARLITOS MAIDANA")}>Cambiar</button>
 
         <h2>Cursos: </h2>
         <ul>
